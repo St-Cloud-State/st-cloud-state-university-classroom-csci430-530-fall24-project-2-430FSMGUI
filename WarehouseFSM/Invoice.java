@@ -1,71 +1,39 @@
-/******************************************************************************
-	Invoice Class
-        Creates Invoice for Client -- Invoice includes Items and Amount Due 
-*******************************************************************************/
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.*;
-import java.io.*;
-import java.lang.*;
+public class Invoice {
+    private Client client;
+    private List<WishItem> items;
+    private double totalAmount;
 
-public class Invoice implements Serializable{
-	private static final long serialVersionUID = 1L;
-	private double amount;
-	private Client clientAccount;
-	private ItemList items;
+    public Invoice(Client client) {
+        this.client = client;
+        this.items = new ArrayList<>();
+        this.totalAmount = 0.0;
+    }
 
-//-----------Constructor---------------------------------
-	public Invoice(Client client){
-		this.clientAccount = client;
-		items = new ItemList();
-		amount = 0.0f;
-	}//end Constructor
+    public void addItem(WishItem item) {
+        items.add(item);
+        totalAmount += item.getProduct().getPrice() * item.getQuantity();
+    }
 
-//-----------addItem---------------------------
-// Add products to invoice
-//----------------------------------------------
-	public void addItem(OrderedProduct i){
-		items.addItem(i);
-		amount += i.getQuantity() * i.getProduct().getSalePrice();
-	}//end addItem
+    public double getTotalAmount() {
+        return totalAmount;
+    }
 
-//------------getInvoice-------------------
-// Returns invoice amount
-//-----------------------------------------
-	public double getInvoiceAmount(){
-		return amount;
-}//end getInvoiceAmount
+    public List<WishItem> getItems() {
+        return items;
+    }
 
-//-----------------sendInvoice------------------------------
-//  Sends invoice to client account, updates their balance
-//----------------------------------------------------------
-	public void applyInvoice(){
-		clientAccount.addInvoice(this);
-	}//end applyInvoice
-
-//--------------toString()-------------------------
-	public String toString(){
-        return "\nClient id: " + clientAccount.getId() + " Amount: " + amount;
-	}//end toString
-	
-//-----------ItemListString()-------------------------
-// Displays toString() AND item list.
-//-------------------------------------------------------
-	public String itemListString(){
-		return toString() + '\n' + items.toString();
-	}//end
-
-
-
-} //end Invoice Class
-
-
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public String toString() {
+        StringBuilder invoiceDetails = new StringBuilder("Invoice for " + client.getName() + ":\n");
+        for (WishItem item : items) {
+            invoiceDetails.append(item.getProduct().getName()).append(" - Quantity: ")
+                          .append(item.getQuantity()).append(", Price: $")
+                          .append(item.getProduct().getPrice()).append("\n");
+        }
+        invoiceDetails.append("Total Amount: $").append(totalAmount);
+        return invoiceDetails.toString();
+    }
+}

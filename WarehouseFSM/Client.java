@@ -1,119 +1,53 @@
-/*****************************************************************
- Client Class
- Creates a Client Object. Each client object has a Name, id, 
- address, balance due, shopping cart, payment list,
- and invoice list. 
- *****************************************************************/
+import java.util.ArrayList;
+import java.util.List;
 
-
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-
-public class Client implements Serializable{
-    
-    private static final long serialVersionUID = 1L;
-    private int clientId;
-    private double balanceDue;
+public class Client {
     private String name;
-    private String address;
-    private PaymentList myPayments;
-    private InvoiceList myInvoices;
-    private ItemList shoppingCart;
-    
-    //--------Client Constructor--------------------------------
-    public Client(String cName, String addr){
-        balanceDue = 0.0f;
-        clientId = (ClientIdServer.instance() ).getId();
-        name = cName;
-        this.address = addr;
-        shoppingCart = new ItemList();
-        myInvoices = new InvoiceList();
-        myPayments = new PaymentList();
+    private double balance;
+    private List<WishItem> wishlist;
+    private List<Invoice> invoices;
 
-    } //end constructor
-   
-    //-----Acessors-----------------
-    public String getName(){
-        return name;   }
-    
-    public int getId(){
-        return clientId; }
-    
-    public double getClientBalance(){
-        return balanceDue;               }
-    
-    public String getClientAddress(){
-        return address;                }
-    
-    public Iterator<Payment> getPayments(){
-        return myPayments.getIterator();    }
-    
-    public Iterator<Invoice> getInvoices(){
-        return myInvoices.getInvoice(); }
-    
-    
-    public Iterator<OrderedProduct> getCart(){
-        return shoppingCart.getIterator();  }
- 
-  
- //-------------Mutators---------------------
-    public void setClientName(String cName){
-        name = cName;          }
-    
-    private void setBalance(double change){
-        balanceDue += change;       }
-    
-    public void setAddress(String addr){
-        this.address = addr;        }
-   
-    
- //--------Add Payment------------------------
- // Add or Remove Payment for Client
- //--------------------------------------------
-    public void addPayment(Payment newPayment){
-        balanceDue -= newPayment.getPayment();
-        myPayments.addPayment(newPayment);  }//end AddPayment
+    public Client(String name) {
+        this.name = name;
+        this.balance = 0.0;
+        this.wishlist = new ArrayList<>();
+        this.invoices = new ArrayList<>();
+    }
 
- //----------Add Invoice------------------------
- //  Add or remove Invoice for Client
- //---------------------------------------------
-    public void addInvoice(Invoice newInvoice){
-        balanceDue += newInvoice.getInvoiceAmount();
-        myInvoices.addInvoice(newInvoice);  }   //end AddInvoice
-    
- //---------------Add To Cart------------------------
- // Add item to Client cart
- //-------------------------------------------------
-    public void addToCart(Product p, int quantity){
-        shoppingCart.addItem(p, quantity);  }//end addToCart
-    
- //----------Update Quantity----------------------
- //Updates quantity of items already in cart
- //---------------------------------------------
-    public void changeItemQuantity(Product p, int q){
-        if(q == 0)
-            shoppingCart.removeItem(p);
-        else
-            shoppingCart.changeQuantity(p, q);  }//end changeQuantity
-    
- //---------Clear cart----------------
- //  Removes all items from cart
- //-------------------------------------
-    public void clearCart(){
-        shoppingCart.clear();       }//end clearCart
-   
-    
- //----------ToString()-------------------
-    public String toString(){
-        return "\nName: " + name + "   Id: " + clientId + "\nAddress: " + address
-        + "\nBalance: $" + balanceDue;
-    }//end toString
+    public String getName() {
+        return name;
+    }
 
-}//end Client class
+    public double getBalance() {
+        return balance;
+    }
 
+    public void addBalance(double amount) {
+        balance += amount;
+    }
 
+    public void subtractBalance(double amount) {
+        balance -= amount;
+    }
 
+    public List<WishItem> getWishlist() {
+        return wishlist;
+    }
 
+    public void addToWishlist(Product product, int quantity) {
+        wishlist.add(new WishItem(product, quantity));
+    }
 
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
 
+    public void addInvoice(Invoice invoice) {
+        invoices.add(invoice);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{name='" + name + "', balance=" + balance + ", wishlist=" + wishlist + '}';
+    }
+}
