@@ -12,10 +12,6 @@ public class ClientList {
         clients.add(client);
     }
 
-    public List<Client> getClients() {
-        return clients;
-    }
-
     public Client getClient(String name) {
         for (Client client : clients) {
             if (client.getName().equals(name)) {
@@ -25,8 +21,16 @@ public class ClientList {
         return null; // Client not found
     }
 
+    public List<Client> getClients() {
+        return clients;
+    }
+
     @Override
     public String toString() {
-        return clients.toString();
+        StringBuilder clientList = new StringBuilder("Clients:\n");
+        for (Client client : clients) {
+            clientList.append(client.toString()).append("\n");
+        }
+        return clientList.toString();
     }
 }

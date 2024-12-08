@@ -1,0 +1,500 @@
+Script started on Sun Dec  8 13:48:15 2024
+[1m[7m%[27m[1m[0m                                                                                                                                                                    [0m[27m[24m[Jjenishalimbu@Jenishas-MacBook-Air WarehouseFSM % [K[?2004hjava UserInterface[14Dc *.java      [?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                    [0m[27m[24m[Jjenishalimbu@Jenishas-MacBook-Air WarehouseFSM % [K[?2004hjavac *.java[8D UserInterface[?2004l
+Login State: Choose Role
+1. Login as Client
+2. Login as Clerk
+3. Login as Manager
+4. Exit
+2
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+1
+Enter client name:
+C1
+Client C1 added successfully.
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+1
+Enter client name:
+C2
+Client C2 added successfully.
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+1
+Enter client name:
+C3
+Client C3 added successfully.
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+1
+Enter client name:
+C4
+Client C4 added successfully.
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+1
+Enter client name:
+C5
+Client C5 added successfully.
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+3
+Client{name='C1', balance=0.0, wishlist=[]}
+Client{name='C2', balance=0.0, wishlist=[]}
+Client{name='C3', balance=0.0, wishlist=[]}
+Client{name='C4', balance=0.0, wishlist=[]}
+Client{name='C5', balance=0.0, wishlist=[]}
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+7
+Login State: Choose Role
+1. Login as Client
+2. Login as Clerk
+3. Login as Manager
+4. Exit
+3
+Manager Menu: Choose an operation
+1. Add a product
+2. Display waitlist for a product
+3. Receive shipment
+4. Become a clerk
+5. Logout
+1
+Enter product name:
+P1
+Enter product quantity:
+10
+Enter product price:
+1
+Product P1 added successfully.
+Manager Menu: Choose an operation
+1. Add a product
+2. Display waitlist for a product
+3. Receive shipment
+4. Become a clerk
+5. Logout
+1
+Enter product name:
+P2
+Enter product quantity:
+20
+Enter product price:
+2
+Product P2 added successfully.
+Manager Menu: Choose an operation
+1. Add a product
+2. Display waitlist for a product
+3. Receive shipment
+4. Become a clerk
+5. Logout
+1
+Enter product name:
+P3
+Enter product quantity:
+20  30
+Enter product price:
+3
+Product P3 added successfully.
+Manager Menu: Choose an operation
+1. Add a product
+2. Display waitlist for a product
+3. Receive shipment
+4. Become a clerk
+5. Logout
+1
+Enter product name:
+P4
+Enter product quantity:
+40
+Enter product price:
+4
+Product P4 added successfully.
+Manager Menu: Choose an operation
+1. Add a product
+2. Display waitlist for a product
+3. Receive shipment
+4. Become a clerk
+5. Logout
+P 1
+Enter product name:
+P5
+Enter product quantity:
+50
+Enter product price:
+5
+Product P5 added successfully.
+Manager Menu: Choose an operation
+1. Add a product
+2. Display waitlist for a product
+3. Receive shipment
+4. Become a clerk
+5. Logout
+4
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+2
+Products:
+Product{name='P1', quantity=10, price=1.0}
+Product{name='P2', quantity=20, price=2.0}
+Product{name='P3', quantity=30, price=3.0}
+Product{name='P4', quantity=40, price=4.0}
+Product{name='P5', quantity=50, price=5.0}
+
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+6
+Enter client name to become:
+C1
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P1
+Enter quantity:
+5
+Added 5 of P1 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P3
+Enter quantity:
+5
+Added 5 of P3 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P5
+Enter quantity:
+5
+Added 5 of P5 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+5
+Wishlist for C1:
+WishItem{product=Product{name='P1', quantity=10, price=1.0}, quantity=5}
+WishItem{product=Product{name='P3', quantity=30, price=3.0}, quantity=5}
+WishItem{product=Product{name='P5', quantity=50, price=5.0}, quantity=5}
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+7
+Login State: Choose Role
+1. Login as Client
+2. Login as Clerk
+3. Login as Manager
+4. Exit
+2
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+6
+Enter client name to become:
+C2
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P1
+Enter quantity:
+7
+Added 7 of P1 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P2
+Enter quantity:
+7
+Added 7 of P2 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P4
+Enter quantity:
+7
+Added 7 of P4 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+5
+Wishlist for C2:
+WishItem{product=Product{name='P1', quantity=10, price=1.0}, quantity=7}
+WishItem{product=Product{name='P2', quantity=20, price=2.0}, quantity=7}
+WishItem{product=Product{name='P4', quantity=40, price=4.0}, quantity=7}
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+7
+Login State: Choose Role
+1. Login as Client
+2. Login as Clerk
+3. Login as Manager
+4. Exit
+2
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+6
+Enter client name to become:
+C3
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P1
+Enter quantity:
+6
+Added 6 of P1 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P2
+Enter quantity:
+6
+Added 6 of P2 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+4
+Enter product name to add to wishlist:
+P5
+Enter quantity:
+6
+Added 6 of P5 to wishlist.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+5
+Wishlist for C3:
+WishItem{product=Product{name='P1', quantity=10, price=1.0}, quantity=6}
+WishItem{product=Product{name='P2', quantity=20, price=2.0}, quantity=6}
+WishItem{product=Product{name='P5', quantity=50, price=5.0}, quantity=6}
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+7
+Login State: Choose Role
+1. Login as Client
+2. Login as Clerk
+3. Login as Manager
+4. Exit
+2
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+6
+Enter client name to become:
+C2
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+6
+Product P1 is not available in the required quantity.
+Product P2 is not available in the required quantity.
+Product P4 is not available in the required quantity.
+Client Menu: Choose an operation
+1. Show client details
+2. Show list of products
+3. Show client transactions
+4. Add item to wishlist
+5. Display wishlist
+6. Place an order
+7. Logout
+7
+Login State: Choose Role
+1. Login as Client
+2. Login as Clerk
+3. Login as Manager
+4. Exit
+2
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+3
+Client{name='C1', balance=0.0, wishlist=[WishItem{product=Product{name='P1', quantity=10, price=1.0}, quantity=5}, WishItem{product=Product{name='P3', quantity=30, price=3.0}, quantity=5}, WishItem{product=Product{name='P5', quantity=50, price=5.0}, quantity=5}]}
+Client{name='C2', balance=0.0, wishlist=[]}
+Client{name='C3', balance=0.0, wishlist=[WishItem{product=Product{name='P1', quantity=10, price=1.0}, quantity=6}, WishItem{product=Product{name='P2', quantity=20, price=2.0}, quantity=6}, WishItem{product=Product{name='P5', quantity=50, price=5.0}, quantity=6}]}
+Client{name='C4', balance=0.0, wishlist=[]}
+Client{name='C5', balance=0.0, wishlist=[]}
+Clerk Menu: Choose an operation
+1. Add a client
+2. Show list of products
+3. Show list of clients
+4. Show clients with outstanding balance
+5. Record payment
+6. Become a client
+7. Logout
+7
+Login State: Choose Role
+1. Login as Client
+2. Login as Clerk
+3. Login as Manager
+4. Exit

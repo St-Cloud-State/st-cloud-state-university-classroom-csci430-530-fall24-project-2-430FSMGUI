@@ -1,5 +1,5 @@
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductList {
     private List<Product> products;
@@ -32,6 +32,10 @@ public class ProductList {
 
     @Override
     public String toString() {
-        return products.toString();
+        StringBuilder productList = new StringBuilder("Products:\n");
+        for (Product product : products) {
+            productList.append(product.toString()).append("\n");
+        }
+        return productList.toString();
     }
 }

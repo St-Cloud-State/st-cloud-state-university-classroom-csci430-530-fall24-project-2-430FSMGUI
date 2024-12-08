@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 public class ClerkMenuState implements State {
     private WareContext context;
+    private ClientList clientList;
 
-    public ClerkMenuState(WareContext context) {
+    public ClerkMenuState(WareContext context, ClientList clientList) {
         this.context = context;
+        this.clientList = clientList;
     }
 
     @Override
@@ -20,10 +22,11 @@ public class ClerkMenuState implements State {
         System.out.println("7. Logout");
 
         int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
         switch (choice) {
             case 1:
-                addClient();
+                addClient(scanner);
                 break;
             case 2:
                 showProducts();
@@ -35,10 +38,10 @@ public class ClerkMenuState implements State {
                 showOutstandingBalance();
                 break;
             case 5:
-                recordPayment();
+                recordPayment(scanner);
                 break;
             case 6:
-                becomeClient();
+                becomeClient(scanner);
                 break;
             case 7:
                 logout();
@@ -48,28 +51,48 @@ public class ClerkMenuState implements State {
         }
     }
 
-    private void addClient() {
-        // Add client logic
+    private void addClient(Scanner scanner) {
+        System.out.println("Enter client name:");
+        String clientName = scanner.nextLine();
+        Client client = new Client(clientName);
+        clientList.addClient(client);
+        System.out.println("Client " + clientName + " added successfully.");
     }
 
     private void showProducts() {
-        // Show products logic
+        ProductList productList = context.getProductList();
+        System.out.println(productList);
     }
 
     private void showClients() {
-        // Show clients logic
+        for (Client client : clientList.getClients()) {
+            System.out.println(client);
+        }
     }
 
     private void showOutstandingBalance() {
-        // Show clients with outstanding balance logic
+        for (Client client : clientList.getClients()) {
+            if (client.getBalance() < 0) {
+                System.out.println(client);
+            }
+        }
     }
 
-    private void recordPayment() {
-        // Record payment logic
+    private void recordPayment(Scanner scanner) {
+        System.out.println("Enter client name to record payment:");
+        String clientName = scanner.nextLine();
+        // Record payment logic using clientName
     }
 
-    private void becomeClient() {
-        context.setState(new ClientMenuState(context));
+    private void becomeClient(Scanner scanner) {
+        System.out.println("Enter client name to become:");
+        String clientName = scanner.nextLine();
+        Client client = clientList.getClient(clientName);
+        if (client != null) {
+            context.setState(new ClientMenuState(context, client)); // Pass the client
+        } else {
+            System.out.println("Client not found.");
+        }
     }
 
     private void logout() {
