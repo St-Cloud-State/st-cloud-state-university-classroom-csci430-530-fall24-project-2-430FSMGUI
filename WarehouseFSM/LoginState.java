@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class LoginState implements State {
@@ -18,11 +17,19 @@ public class LoginState implements State {
         System.out.println("4. Exit");
 
         int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
         if (choice == 1) {
-            context.setState(new ClientMenuState(context)); // Transition to ClientMenuState
+            System.out.println("Enter client name:");
+            String clientName = scanner.nextLine();
+            Client client = context.getClientList().getClient(clientName);
+            if (client != null) {
+                context.setState(new ClientMenuState(context, client)); // Pass the client
+            } else {
+                System.out.println("Client not found.");
+            }
         } else if (choice == 2) {
-            context.setState(new ClerkMenuState(context)); // Transition to ClerkMenuState
+            context.setState(new ClerkMenuState(context, context.getClientList())); // Transition to ClerkMenuState
         } else if (choice == 3) {
             context.setState(new ManagerMenuState(context)); // Transition to ManagerMenuState
         } else if (choice == 4) {

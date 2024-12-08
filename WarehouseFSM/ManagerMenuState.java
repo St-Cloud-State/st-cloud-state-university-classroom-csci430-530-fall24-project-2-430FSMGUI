@@ -18,16 +18,17 @@ public class ManagerMenuState implements State {
         System.out.println("5. Logout");
 
         int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
         switch (choice) {
             case 1:
-                addProduct();
+                addProduct(scanner);
                 break;
             case 2:
-                displayWaitlist();
+                displayWaitlist(scanner);
                 break;
             case 3:
-                receiveShipment();
+                receiveShipment(scanner);
                 break;
             case 4:
                 becomeClerk();
@@ -40,20 +41,36 @@ public class ManagerMenuState implements State {
         }
     }
 
-    private void addProduct() {
-        // Add product logic
+    private void addProduct(Scanner scanner) {
+        System.out.println("Enter product name:");
+        String productName = scanner.nextLine();
+        System.out.println("Enter product quantity:");
+        int quantity = scanner.nextInt();
+        System.out.println("Enter product price:");
+        double price = scanner.nextDouble();
+        scanner.nextLine(); // Consume newline
+        Product product = new Product(productName, quantity, price);
+        context.getProductList().addProduct(product);
+        System.out.println("Product " + productName + " added successfully.");
     }
 
-    private void displayWaitlist() {
-        // Display waitlist logic
+    private void displayWaitlist(Scanner scanner) {
+        System.out.println("Enter product name to display waitlist:");
+        String productName = scanner.nextLine();
+        // Display waitlist logic using productName
     }
 
-    private void receiveShipment() {
-        // Receive shipment logic
+    private void receiveShipment(Scanner scanner) {
+        System.out.println("Enter product name to receive shipment:");
+        String productName = scanner.nextLine();
+        System.out.println("Enter quantity to receive:");
+        int quantity = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        // Receive shipment logic using productName and quantity
     }
 
     private void becomeClerk() {
-        context.setState(new ClerkMenuState(context));
+        context.setState(new ClerkMenuState(context, context.getClientList()));
     }
 
     private void logout() {
