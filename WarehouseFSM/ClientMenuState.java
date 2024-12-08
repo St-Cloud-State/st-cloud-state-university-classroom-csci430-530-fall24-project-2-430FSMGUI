@@ -73,6 +73,6 @@ public class ClientMenuState implements State {
     }
 
     private void logout() {
-        context.setState(new LoginState(context));
+        context.setState(new LoginState(context)); // Transition back to LoginState
     }
 }
