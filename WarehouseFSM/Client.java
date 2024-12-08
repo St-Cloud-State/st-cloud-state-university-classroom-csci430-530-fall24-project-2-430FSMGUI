@@ -1,28 +1,53 @@
-package WarehouseSystem;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
-    // Private fields
-    private String clientID;
     private String name;
-    private String email;
-    private List<Product> wishlist = new LinkedList<Product>();
+    private double balance;
+    private List<WishItem> wishlist;
+    private List<Invoice> invoices;
 
-    // Constructor
-    public Client (String clientID, String name, String email) {
-        this.clientID = clientID;
+    public Client(String name) {
         this.name = name;
-        this.email = email;
+        this.balance = 0.0;
+        this.wishlist = new ArrayList<>();
+        this.invoices = new ArrayList<>();
     }
 
-    // Getters
-    public String getID() {return clientID;}
-    public String getName() {return name;}
-    public String getEmail() {return email;}
-    public List<Product> getWishlist() {return wishlist;}
+    public String getName() {
+        return name;
+    }
 
-    // Operations
-    public void addToWishlist(Product product) {
-        this.wishlist.add(product);
+    public double getBalance() {
+        return balance;
+    }
+
+    public void addBalance(double amount) {
+        balance += amount;
+    }
+
+    public void subtractBalance(double amount) {
+        balance -= amount;
+    }
+
+    public List<WishItem> getWishlist() {
+        return wishlist;
+    }
+
+    public void addToWishlist(Product product, int quantity) {
+        wishlist.add(new WishItem(product, quantity));
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void addInvoice(Invoice invoice) {
+        invoices.add(invoice);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{name='" + name + "', balance=" + balance + ", wishlist=" + wishlist + '}';
     }
 }

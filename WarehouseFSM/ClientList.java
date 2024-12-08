@@ -1,37 +1,32 @@
-package WarehouseSystem;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientList {
-    // Private fields
-    private static ClientList clientList;
-    private List<Client> clients = new LinkedList<Client>();
+    private List<Client> clients;
 
-    // Constructor
-    private ClientList(){}; // Private to enforce singleton
-
-    // Operations
-    public static ClientList instance() { // Creation method
-        if (clientList == null) {
-            return (clientList = new ClientList());
-        }
-        else {
-            return clientList;
-        }
+    public ClientList() {
+        clients = new ArrayList<>();
     }
 
-    public boolean addClient(Client client) {
+    public void addClient(Client client) {
         clients.add(client);
-        return true;
     }
 
-    public Client getClient(String clientID) {
-        Iterator<Client> it = clients.iterator();
-        while( it.hasNext()) {
-            Client i = it.next();
-            if( i.getID() == clientID) {
-                return i;
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public Client getClient(String name) {
+        for (Client client : clients) {
+            if (client.getName().equals(name)) {
+                return client;
             }
         }
-        return null;
+        return null; // Client not found
+    }
+
+    @Override
+    public String toString() {
+        return clients.toString();
     }
 }

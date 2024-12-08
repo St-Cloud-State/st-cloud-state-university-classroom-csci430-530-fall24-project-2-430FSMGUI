@@ -1,30 +1,32 @@
-package WarehouseSystem;
 public class Product {
-    // Private fields
-    private String productID;
     private String name;
-    private Float price;
-    private Integer quantity;
+    private int quantity;
+    private double price;
 
-    // Constructor
-    public Product (String productID, String name, Float price, Integer quantity) {
-        this.productID = productID;
+    public Product(String name, int quantity, double price) {
         this.name = name;
+        this.quantity = quantity;
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void updateQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    // Getters
-    public String getID() {return productID;}
-    public String getName() {return name;}
-    public Float getPrice() {return price;}
-    public Integer getQuantity() {return quantity;}
-
-    // Operations
-    public void modifyQuantity(Integer amount) {
-        this.quantity += amount;
+    public double getPrice() {
+        return price;
     }
-    public void setQuantity(Integer amount) {
-        this.quantity = amount;
+
+    @Override
+    public String toString() {
+        return "Product{name='" + name + "', quantity=" + quantity + ", price=" + price + '}';
     }
 }
